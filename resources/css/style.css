@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background: url("../images/landing.gif") no-repeat 50% / cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+
+/* Form */
+.container .js-login {
+    height: 600px;
+    width: 450px;
+    position: relative;
+    left: 33%;
+    transform: translateX(-50%);
+    display: grid;
+    align-items: start;
+    background: url('../images/landing.png');
+    border-radius: 3px;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.3);
+}
+
+.container .form-container {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 200px;
+    grid-gap: 10px;
+}
+
+/* Form Background Blur */
+.container .js-login::before {
+    content: '';
+    background: inherit;
+    position: absolute;
+    height: 630px;
+    width: 470px;
+    top: -15px;
+    left: -10px;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 0 6px rgba(33, 33, 33, 0.3);
+    filter: blur(6px);
+    z-index: -1;
+}
+
+/* Form Header */
+.container .form-container .header { 
+    height: 150px;
+    align-self: start;
+}
+
+.js-login .form-section h2 {
+    height: 50%;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 36px;
+    border-bottom: 3px solid rgb(18, 122, 151);
+    border-radius: 3px;
+}
+
+/* Form Sections */
+.js-login .form-container .form-section {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-container .form-section .form-label {
+    color: #ebe3e3;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.form-container .form-section .input-box {
+    padding: 10px;
+}
+
+.form-section .input-box .input {
+    height: 30px;
+    width: 270px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-indent: 6px;
+    background: rgba(0,0,0,0.6);
+    box-shadow: 0 0 5px rgb(18, 122, 151);
+    border: 1px solid #000000;
+    color: #ebe3e3;
+}
+
+.form-section .input-box .input::placeholder {
+    color: #a7a4a4d5;
+}
+
+.form-section .input-box .input:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+/* Login Button */
+.js-login .form-section .login-btn {
+   height: 30px;
+   width: 60%;
+   border-radius: 6px;
+   border: 0;
+   margin: auto;
+   background: rgb(18, 122, 151);
+   font-weight: 600;
+   color: #fff;
+   outline: none;
+   transition: .2s ease;
+}
+
+.js-login .form-section .login-btn:hover {
+    box-shadow: -3px 0 0 rgba(81, 203, 238, 1), 3px 0 0 rgba(81, 203, 238, 1), 0 3px 0 rgba(81, 203, 238, 1), 0 0 0 3px rgba(81, 203, 238, 1);
+    transition: .2s ease;
+    cursor: pointer;
+}
+
