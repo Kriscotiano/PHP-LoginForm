@@ -11,6 +11,41 @@
     align-items: center;
 }
 
+/* Landing */
+.container .landing {
+    height: 600px;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    color: #ebe3e3;
+    font-size: 32px;
+}
+
+.container .landing p {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container .landing p a {
+    height: 100%;
+    width: 30%;
+    padding: 3px;
+    position: relative;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #ebe3e3;
+}
+
+.container .landing p a:hover {
+    background: rgba(0,0,0,0.6);
+    box-shadow: -3px 0 0 rgba(81, 203, 238, 1), 
+                 3px 0 0 rgba(81, 203, 238, 1), 
+                 0 3px 0 rgba(81, 203, 238, 1), 
+                 0 0 0 3px rgba(81, 203, 238, 1);
+    transition: .3s ease;
+}
+
 
 /* Form */
 .container .js-login {
@@ -104,6 +139,29 @@
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 }
 
+/* Register Button */
+.js-login .form-section .register-btn {
+    height: 30px;
+    width: 60%;
+    border-radius: 6px;
+    border: 0;
+    margin: auto;
+    background: rgb(18, 122, 151);
+    font-weight: 600;
+    color: #fff;
+    outline: none;
+    transition: .2s ease;
+ }
+ 
+ .js-login .form-section .register-btn:hover {
+     box-shadow: -3px 0 0 rgba(81, 203, 238, 1), 
+                 3px 0 0 rgba(81, 203, 238, 1), 
+                 0 3px 0 rgba(81, 203, 238, 1), 
+                 0 0 0 3px rgba(81, 203, 238, 1);
+     transition: .2s ease;
+     cursor: pointer;
+ }
+
 /* Login Button */
 .js-login .form-section .login-btn {
    height: 30px;
@@ -119,7 +177,10 @@
 }
 
 .js-login .form-section .login-btn:hover {
-    box-shadow: -3px 0 0 rgba(81, 203, 238, 1), 3px 0 0 rgba(81, 203, 238, 1), 0 3px 0 rgba(81, 203, 238, 1), 0 0 0 3px rgba(81, 203, 238, 1);
+    box-shadow: -3px 0 0 rgba(81, 203, 238, 1), 
+                3px 0 0 rgba(81, 203, 238, 1), 
+                0 3px 0 rgba(81, 203, 238, 1), 
+                0 0 0 3px rgba(81, 203, 238, 1);
     transition: .2s ease;
     cursor: pointer;
 }

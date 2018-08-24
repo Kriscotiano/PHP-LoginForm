@@ -1,3 +1,10 @@
+<?php 
+    //Allow the config
+    define('__CONFIG__', true);
+    //Require the config
+    require_once "parts/config.php"; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,35 +21,20 @@
 
     <body>
         <div class="container">
-
-            <form class="js-login">
-                <div class="form-container">
-                    <div class="form-section header">
-                        <h2>Sign In</h2>
-                    </div>
-
-                    <div class="form-section">
-                        <label class="form-label" for="email">Email</label>
-                        <div class="input-box">
-                            <input class="input" id="email" type="email" required="required" placeholder="johndoe@email.com">
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <label class="form-label" for="password">Password</label>
-                        <div class="input-box">
-                            <input class="input" id="password" type="password" required="required" placeholder="enter password">
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <button class="login-btn" type="submit">Login</button>
-                    </div>
-                </div>
-            </form>
-
+            <div class="landing">
+                <h1>Welcome. Today is:</h1>
+                <br><br>
+                <?php
+                    echo date('y m d');
+                ?>
+                <br><br>
+                <p>
+                    <a href="login.php">Login</a>
+                    <a href="register.php">Register</a>
+                </p>
+            </div>       
         </div>
 
-        <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+        <?php require_once "parts/footer.php" ?>
     </body>
 </html>
