@@ -22,7 +22,7 @@
     <body>
         <div class="container">
 
-            <form class="js-login">
+            <form class="js-register">
                 <div class="form-container">
                     <section class="form-section header">
                         <h2>Register</h2>
@@ -39,6 +39,13 @@
                         <label class="form-label" for="password">Password</label>
                         <div class="input-box">
                             <input class="input" id="password" type="password" required="required" placeholder="enter password...">
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <label class="form-label" for="password">Confirm Password</label>
+                        <div class="input-box">
+                            <input class="input" id="confirm" type="password" required="required" placeholder="re-enter password...">
                         </div>
                     </section>
 

@@ -46,11 +46,47 @@
     transition: .3s ease;
 }
 
+/* Form Register */
+.container .js-register {
+    height: 600px;
+    width: 475px;
+    position: relative;
+    left: 33%;
+    transform: translateX(-50%);
+    display: grid;
+    align-items: start;
+    background: url('../images/landing.png');
+    border-radius: 3px;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.3);
+}
 
-/* Form */
+.container .form-container {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 200px;
+    grid-gap: 10px;
+}
+
+/* Form Background Blur */
+.container .js-register::before {
+    content: '';
+    background: inherit;
+    position: absolute;
+    height: 630px;
+    width: 490px;
+    top: -15px;
+    left: -10px;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 0 6px rgba(33, 33, 33, 0.3);
+    filter: blur(6px);
+    z-index: -1;
+}
+
+/* Form Login */
 .container .js-login {
     height: 600px;
-    width: 450px;
+    width: 475px;
     position: relative;
     left: 33%;
     transform: translateX(-50%);
@@ -74,7 +110,7 @@
     background: inherit;
     position: absolute;
     height: 630px;
-    width: 470px;
+    width: 490px;
     top: -15px;
     left: -10px;
     right: 0;
@@ -90,7 +126,7 @@
     align-self: start;
 }
 
-.js-login .form-section h2 {
+.form-container .form-section h2 {
     height: 50%;
     width: 100%;
     color: #fff;
@@ -101,7 +137,7 @@
 }
 
 /* Form Sections */
-.js-login .form-container .form-section {
+.form-container .form-section {
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -111,7 +147,7 @@
 .form-container .form-section .form-label {
     color: #ebe3e3;
     padding: 10px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -121,7 +157,7 @@
 
 .form-section .input-box .input {
     height: 30px;
-    width: 270px;
+    width: 250px;
     border-radius: 5px;
     font-size: 18px;
     text-indent: 6px;
@@ -140,7 +176,7 @@
 }
 
 /* Register Button */
-.js-login .form-section .register-btn {
+.form-container .form-section .register-btn {
     height: 30px;
     width: 60%;
     border-radius: 6px;
@@ -153,7 +189,7 @@
     transition: .2s ease;
  }
  
- .js-login .form-section .register-btn:hover {
+ .form-container .form-section .register-btn:hover {
      box-shadow: -3px 0 0 rgba(81, 203, 238, 1), 
                  3px 0 0 rgba(81, 203, 238, 1), 
                  0 3px 0 rgba(81, 203, 238, 1), 
@@ -163,7 +199,7 @@
  }
 
 /* Login Button */
-.js-login .form-section .login-btn {
+.form-container .form-section .login-btn {
    height: 30px;
    width: 60%;
    border-radius: 6px;
@@ -176,7 +212,7 @@
    transition: .2s ease;
 }
 
-.js-login .form-section .login-btn:hover {
+.form-container .form-section .login-btn:hover {
     box-shadow: -3px 0 0 rgba(81, 203, 238, 1), 
                 3px 0 0 rgba(81, 203, 238, 1), 
                 0 3px 0 rgba(81, 203, 238, 1), 
