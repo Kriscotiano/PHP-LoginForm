@@ -34,6 +34,7 @@
                             <input class="input" id="email" type="email" required="required" placeholder="johndoe@email.com">
                         </div>
                     </section>
+                    <div class="email-error"></div>
 
                     <section class="form-section">
                         <label class="form-label" for="password">Password</label>
@@ -41,6 +42,7 @@
                             <input class="input" id="password" type="password" required="required" placeholder="enter password...">
                         </div>
                     </section>
+                    <div class="password-error"></div>
 
                     <section class="form-section">
                         <label class="form-label" for="password">Confirm Password</label>
@@ -48,6 +50,7 @@
                             <input class="input" id="confirm" type="password" required="required" placeholder="re-enter password...">
                         </div>
                     </section>
+                    <div class="confirm-error"></div>
 
                     <section class="form-section">
                         <button class="register-btn" type="submit">Register</button>
