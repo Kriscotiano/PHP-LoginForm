@@ -101,7 +101,7 @@
     width: 100%;
     display: grid;
     grid-template-rows: 200px;
-    grid-gap: 10px;
+    grid-gap: 6px;
 }
 
 /* Form Background Blur */
@@ -181,7 +181,8 @@
     width: 60%;
     border-radius: 6px;
     border: 0;
-    margin: auto;
+    margin: 0 auto;
+    margin-top: 15px;
     background: rgb(18, 122, 151);
     font-weight: 600;
     color: #fff;
@@ -205,6 +206,7 @@
    border-radius: 6px;
    border: 0;
    margin: auto;
+   margin-top: 15px;
    background: rgb(18, 122, 151);
    font-weight: 600;
    color: #fff;
@@ -222,3 +224,49 @@
 }
 
 /* Form Error Displays */
+.form-container .email-validation {
+    margin: 0 20px;
+}
+
+.form-container .email-validation .invalid {
+    color: rgb(255, 70, 70);
+}
+
+.form-container .text-error {
+    height: 20px;
+    color: rgb(255, 70, 70);
+    border-radius: 3px;
+    line-height: 20px;
+    font-size: 18px;
+}
+
+.form-container .text-success {
+    height: 20px;
+    color: rgb(0, 210, 0);
+    border-radius: 3px;
+    line-height: 20px;
+    font-size: 18px;
+}
+
+.form-container .email-validation .fa-spinner {
+    font-size: 15px;
+    color: #fff;
+}
+
+.form-container .password-error {
+    height: 20px;
+    color: rgb(255, 70, 70);
+    border-radius: 3px;
+    line-height: 20px;
+    font-size: 18px;
+    display: none;
+}
+
+.form-container .confirm-error {
+    height: 20px;
+    color: rgb(255, 70, 70);
+    border-radius: 3px;
+    line-height: 20px;
+    font-size: 18px;
+    display: none;
+}

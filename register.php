@@ -17,6 +17,7 @@
         <title>Registration & Login Form</title>
 
         <link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     </head>
 
     <body>
@@ -34,7 +35,7 @@
                             <input class="input" id="email" type="email" required="required" placeholder="johndoe@email.com">
                         </div>
                     </section>
-                    <div class="email-error"></div>
+                    <div class="email-validation"></div>
 
                     <section class="form-section">
                         <label class="form-label" for="password">Password</label>
@@ -42,7 +43,7 @@
                             <input class="input" id="password" type="password" required="required" placeholder="enter password...">
                         </div>
                     </section>
-                    <div class="password-error"></div>
+                    <div class="password-error">Password is invalid!</div>
 
                     <section class="form-section">
                         <label class="form-label" for="password">Confirm Password</label>
@@ -50,7 +51,7 @@
                             <input class="input" id="confirm" type="password" required="required" placeholder="re-enter password...">
                         </div>
                     </section>
-                    <div class="confirm-error"></div>
+                    <div class="confirm-error">Passwords do not match!</div>
 
                     <section class="form-section">
                         <button class="register-btn" type="submit">Register</button>
