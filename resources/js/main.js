@@ -1,10 +1,8 @@
 $(document).ready(function() {
-    let eError = $('.email-error');
-    let pError = $('.password-error');
-    let cError = $('.confirm-error');
 
-    let emailReg = /^[@]+$/i;
+    let passwordReg = /^(?=.*[0-9])[\w.!#$&*+]{6,}$/;
 
+    //Email Validation
     $('#email')
         .on('input', _.debounce(async function() {
             let emailVal = $.trim($('#email').val());
@@ -41,6 +39,37 @@ $(document).ready(function() {
             }
         }, 1500));
     
+    //Password Validation
+    $('#password').on('input', _.debounce(async function() {
+        let passwordVal = $.trim($('#password').val());
+
+        if (passwordReg.test(passwordVal)) {
+            $('.password-validation')
+                .html("<div class='text-success'><i class='fa fa-check-circle'></i></div>")
+                .show();
+        } else {
+            $('.password-validation')
+                .html("<div class='text-error'><i class='fa fa-check-circle'></i> Must contain at least 6 characters & 1 integer.</div>")
+                .show();
+        }
+    }, 1500));
+
+    //Confirm Password Validation
+    $('#confirm').on('input', _.debounce(async function() {
+        let confirmVal = $.trim($('#confirm').val());
+
+        if (confirmVal == $('#password').val()) {
+            $('.confirm-validation')
+                .html("<div class='text-success'><i class='fa fa-check-circle'></i></div>")
+                .show();
+        } else {
+            $('.confirm-validation')
+                .html("<div class='text-error'><i class='fa fa-check-circle'></i> Passwords do not match.</div>")
+                .show();
+        }
+    }, 1500));
+
+    //Form Submission Validation
     $(document)
     .on('submit', '.js-register', function(event) {
         event.preventDefault();

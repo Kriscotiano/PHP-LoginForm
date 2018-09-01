@@ -223,8 +223,10 @@
     cursor: pointer;
 }
 
-/* Form Error Displays */
-.form-container .email-validation {
+/* Form Error & Validation Displays */
+.form-container .email-validation, 
+.form-container .password-validation, 
+.form-container .confirm-validation {
     margin: 0 20px;
 }
 
@@ -251,22 +253,4 @@
 .form-container .email-validation .fa-spinner {
     font-size: 15px;
     color: #fff;
-}
-
-.form-container .password-error {
-    height: 20px;
-    color: rgb(255, 70, 70);
-    border-radius: 3px;
-    line-height: 20px;
-    font-size: 18px;
-    display: none;
-}
-
-.form-container .confirm-error {
-    height: 20px;
-    color: rgb(255, 70, 70);
-    border-radius: 3px;
-    line-height: 20px;
-    font-size: 18px;
-    display: none;
 }
