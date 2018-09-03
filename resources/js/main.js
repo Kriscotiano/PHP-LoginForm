@@ -110,4 +110,32 @@ $(document).ready(function() {
         return false;
     });
 
+    $(document)
+    .on('submit', '.js-login', function(event) {
+        event.preventDefault();
+
+        let form = $(this);
+        let data = {
+            //form.find looks through just the form instead of having to search through entire html
+            email: form.find("input[type='email']").val(),
+            password: form.find("#password.input[type='password']").val()
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: 'ajax/login.php',
+            data: data,
+            dataType: 'JSON',
+            success: function(data) {
+                if (data.redirect !== undefined) {
+                    window.location = data.redirect;
+                } else if (data.error !== undefined) {
+                    _error.html(data.error).show();
+                }
+            }
+        });
+        
+        return false;
+    });
+
 });
