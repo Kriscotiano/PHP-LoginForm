@@ -3,6 +3,22 @@
     define('__CONFIG__', true);
     //Require the config
     require_once "parts/config.php"; 
+
+    forceLogin();
+
+    $user_id = $_SESSION['user_id'];
+
+    $getUserInfo = $con->prepare('SELECT email, reg_time FROM users WHERE user_id = :user_id LIMIT 1');
+    $getUserInfo->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $getUserInfo->execute();
+
+    if ($getUserInfo->rowCount() === 1) {
+        //User was found
+        $user = $getUserInfo->fetch(PDO::FETCH_ASSOC);
+    } else {
+        //User is not signed in
+        header('Location: logout.php'); exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +37,11 @@
 
     <body>
         <div class="container">
-            <h1 style="color: #fff">HELLO</h1>
+            <section class="form-section">
+                <h2 style="color: #fff;">Dashboard</h2>
+                <p style="color: #fff;">Hello <?php echo $user['email']; ?>, you registered at <?php echo $user['reg_time']; ?></p>
+                <p><a style="color: #fff;" href="logout.php">Logout</a></p>
+            </section>
         </div>
 
         <?php require_once "parts/footer.php" ?>

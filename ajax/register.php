@@ -22,6 +22,9 @@
             //User exists
             $return['error'] = 'This account already exists';
             $return['is_logged_in'] = false;
+        } else if ($_POST['password'] !== $_POST['confirm']) {
+            $return['error'] = 'Passwords do not match';
+            $return['is_logged_in'] = false;
         } else {
             //User does not exist. Add them
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);

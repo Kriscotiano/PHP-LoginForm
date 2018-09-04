@@ -1,9 +1,7 @@
 $(document).ready(function() {
 
     let passwordReg = /^(?=.*[0-9])[\w.!#$&*+]{6,}$/;
-    let email = '';
-    let password = '';
-    let confirm = '';
+    
 
     //Email Validation
     $('#email')
@@ -28,12 +26,10 @@ $(document).ready(function() {
                             $('.email-validation')
                                 .html("<div class='text-success'><i class='fa fa-check-circle'></i> Available</div>")
                                 .show();
-                                email = emailVal;
                         } else if (!data['valid']) {
                             $('.email-validation')
-                                .html("<div class='text-error'><i class='fa fa-check-circle'></i> Not Available</div>")
+                                .html("<div class='text-error'><i class='fa fa-check-circle'></i> Email already exists</div>")
                                 .show();
-                                email = '';
                         }
                     }, 1000)
                 })
@@ -41,7 +37,6 @@ $(document).ready(function() {
                 $('.email-validation')
                     .html('<div class="invalid">Must contain at least one @ symbol</div>')
                     .show();
-                    email = '';
             }
         }, 1500));
     
@@ -53,12 +48,10 @@ $(document).ready(function() {
             $('.password-validation')
                 .html("<div class='text-success'><i class='fa fa-check-circle'></i></div>")
                 .show();
-                password = passwordVal;
         } else {
             $('.password-validation') 
                 .html("<div class='text-error'><i class='fa fa-check-circle'></i> Must contain at least 6 characters & 1 integer.</div>")
                 .show();
-                password = '';
         }
     }, 1500));
 
@@ -70,12 +63,10 @@ $(document).ready(function() {
             $('.confirm-validation')
                 .html("<div class='text-success'><i class='fa fa-check-circle'></i></div>")
                 .show();
-                confirm = confirmVal;
         } else {
             $('.confirm-validation')
                 .html("<div class='text-error'><i class='fa fa-check-circle'></i> Passwords do not match.</div>")
                 .show();
-                confirm = '';
         }
     }, 1500));
 
@@ -85,6 +76,7 @@ $(document).ready(function() {
         event.preventDefault();
 
         let form = $(this);
+        let error = form.find('.js-error');
         let data = {
             //form.find looks through just the form instead of having to search through entire html
             email: form.find("input[type='email']").val(),
@@ -98,11 +90,10 @@ $(document).ready(function() {
             data: data,
             dataType: 'JSON',
             success: function(data) {
-                console.log(data);
                 if (data.redirect !== undefined) {
                     window.location = data.redirect;
                 } else if (data.error !== undefined) {
-                    _error.text(data.error).show();
+                    error.html(data.error).show();
                 }
             }
         });
@@ -115,6 +106,7 @@ $(document).ready(function() {
         event.preventDefault();
 
         let form = $(this);
+        let error = form.find('.js-error');
         let data = {
             //form.find looks through just the form instead of having to search through entire html
             email: form.find("input[type='email']").val(),
@@ -130,7 +122,7 @@ $(document).ready(function() {
                 if (data.redirect !== undefined) {
                     window.location = data.redirect;
                 } else if (data.error !== undefined) {
-                    _error.html(data.error).show();
+                    error.html(data.error).show();
                 }
             }
         });

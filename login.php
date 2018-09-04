@@ -3,6 +3,8 @@
     define('__CONFIG__', true);
     //Require the config
     require_once "parts/config.php"; 
+
+    forceDashboard();
 ?>
 
 <!DOCTYPE html>
@@ -24,27 +26,35 @@
 
             <form class="js-login">
                 <div class="form-container">
-                    <div class="form-section header">
+                    <section class="form-section header">
                         <h2>Sign In</h2>
-                    </div>
+                    </section>
 
-                    <div class="form-section">
+                    <section class="form-section">
                         <label class="form-label" for="email">Email</label>
                         <div class="input-box">
                             <input class="input" id="email" type="email" required="required" placeholder="johndoe@email.com">
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="form-section">
+                    <section class="form-section">
                         <label class="form-label" for="password">Password</label>
                         <div class="input-box">
                             <input class="input" id="password" type="password" required="required" placeholder="enter password...">
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="form-section">
+                    <div class="js-error"></div>  
+
+                    <section class="form-section">
                         <button class="login-btn" type="submit">Login</button>
-                    </div>
+                    </section>
+
+                    <section class="form-section">
+                        <div class="href-box">
+                            <a href="register.php">Don't have an account?</a>
+                        </div>
+                    </section>
                 </div>
             </form>
 

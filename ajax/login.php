@@ -33,13 +33,12 @@
                 $_SESSION['user_id'] = $user_id;
             } else {
                 //Invalid user email/password
-                $return['error'] = 'Invalid user email/password';
+                $return['error'] = 'Invalid email or password';
             }
             
-            $return['error'] = 'This account already exists';
         } else {
             //User does not exist. 
-            $return['error'] = "This account does not exist. <a href='register.php'>Create one now?</a>";
+            $return['error'] = "Invalid email or password";
         }
 
         echo json_encode($return, JSON_PRETTY_PRINT);

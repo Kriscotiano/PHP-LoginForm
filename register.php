@@ -3,6 +3,8 @@
     define('__CONFIG__', true);
     //Require the config
     require_once "parts/config.php"; 
+
+    forceDashboard();
 ?>
 
 <!DOCTYPE html>
@@ -52,9 +54,15 @@
                         </div>
                     </section>
                     <div class="confirm-validation"></div>
-
+                
                     <section class="form-section">
                         <button class="register-btn" type="submit">Register</button>
+                    </section>
+
+                    <section class="form-section">
+                        <div class="href-box">
+                            <a href="login.php">Already have an account?</a>
+                        </div>
                     </section>
                 </div>
             </form>
