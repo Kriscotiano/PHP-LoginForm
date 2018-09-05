@@ -122,7 +122,7 @@ $(document).ready(function() {
                 if (data.redirect !== undefined) {
                     window.location = data.redirect;
                 } else if (data.error !== undefined) {
-                    error.html(data.error).show();
+                    error.html(data.error).show().delay(6000).fadeOut();
                 }
             }
         });

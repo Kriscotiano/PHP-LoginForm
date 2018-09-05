@@ -42,7 +42,7 @@
                     <section class="form-section">
                         <label class="form-label" for="password">Password</label>
                         <div class="input-box">
-                            <input class="input" id="password" type="password" required="required" placeholder="enter password...">
+                            <input class="input" id="password" type="password" required="required" placeholder="●●●●●●●●●">
                         </div>
                     </section>
                     <div class="password-validation"></div>
@@ -50,7 +50,7 @@
                     <section class="form-section">
                         <label class="form-label" for="password">Confirm Password</label>
                         <div class="input-box">
-                            <input class="input" id="confirm" type="password" required="required" placeholder="re-enter password...">
+                            <input class="input" id="confirm" type="password" required="required" placeholder="●●●●●●●●●">
                         </div>
                     </section>
                     <div class="confirm-validation"></div>

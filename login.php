@@ -40,7 +40,7 @@
                     <section class="form-section">
                         <label class="form-label" for="password">Password</label>
                         <div class="input-box">
-                            <input class="input" id="password" type="password" required="required" placeholder="enter password...">
+                            <input class="input" id="password" type="password" required="required" placeholder="●●●●●●●●●">
                         </div>
                     </section>
 
