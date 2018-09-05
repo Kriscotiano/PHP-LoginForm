@@ -1,19 +1,36 @@
 $(document).ready(function() {
-
+    //Globals
     let passwordReg = /^(?=.*[0-9])[\w.!#$&*+]{6,}$/;
-    
+    let validation = [
+        { 
+            name: $('.email-validation'), 
+            successMsg: 'Available',
+            failMsg: [
+                'Email already exists',
+                'Must contain at least one @ symbol'
+            ]
+        },
+        {
+            name: $('.password-validation'),
+            successMsg: '',
+            failMsg: 'Must contain at least 6 characters & 1 integer'
+        },
+        {
+            name: $('.confirm-validation'),
+            successMsg: '',
+            failMsg: 'Passwords do not match'
+        }
+    ];
 
     //Email Validation
     $('#email')
-        .on('input', _.debounce(async function() {
-            let emailVal = $.trim($('#email').val());
-                
-            if (emailVal.indexOf("@")!=-1) {
+        .on('input', _.debounce(async function() {    
+            if (trimVal('#email').indexOf("@")!=-1) {
                 $.ajax({
                     type: 'POST',
                     url: 'ajax/validate_email.php',
                     data: {
-                        email: emailVal
+                        email: trimVal('#email')
                     },
                     dataType: 'JSON',
                     beforeSend: function() {
@@ -22,51 +39,33 @@ $(document).ready(function() {
                             .show();
                     },
                     success: _.debounce(async function(data) {
-                        if (data['valid'] && emailVal.indexOf("@")!=-1) {
-                            $('.email-validation')
-                                .html("<div class='text-success'><i class='fa fa-check-circle'></i> Available</div>")
-                                .show();
+                        if (data['valid'] && trimVal('#email').indexOf("@")!=-1) {
+                            errorFalse(validation[0].name, validation[0].successMsg);
                         } else if (!data['valid']) {
-                            $('.email-validation')
-                                .html("<div class='text-error'><i class='fa fa-check-circle'></i> Email already exists</div>")
-                                .show();
+                            errorTrue(validation[0].name, validation[0].failMsg[0]);
                         }
                     }, 1000)
-                })
+                })          
             } else {
-                $('.email-validation')
-                    .html('<div class="invalid">Must contain at least one @ symbol</div>')
-                    .show();
+                errorTrue(validation[0].name, validation[0].failMsg[1]);
             }
         }, 1500));
     
     //Password Validation
     $('#password').on('input', _.debounce(async function() {
-        let passwordVal = $.trim($('#password').val());
-
-        if (passwordReg.test(passwordVal)) {
-            $('.password-validation')
-                .html("<div class='text-success'><i class='fa fa-check-circle'></i></div>")
-                .show();
+        if (passwordReg.test(trimVal('#password'))) {
+            errorFalse(validation[1].name, validation[1].successMsg);
         } else {
-            $('.password-validation') 
-                .html("<div class='text-error'><i class='fa fa-check-circle'></i> Must contain at least 6 characters & 1 integer.</div>")
-                .show();
+            errorTrue(validation[1].name, validation[1].failMsg);
         }
     }, 1500));
 
     //Confirm Password Validation
     $('#confirm').on('input', _.debounce(async function() {
-        let confirmVal = $.trim($('#confirm').val());
-
-        if (confirmVal === $('#password').val()) {
-            $('.confirm-validation')
-                .html("<div class='text-success'><i class='fa fa-check-circle'></i></div>")
-                .show();
+        if (trimVal('#confirm') === trimVal('#password')) {
+            errorFalse(validation[2].name, validation[2].successMsg);
         } else {
-            $('.confirm-validation')
-                .html("<div class='text-error'><i class='fa fa-check-circle'></i> Passwords do not match.</div>")
-                .show();
+            errorTrue(validation[2].name, validation[2].failMsg);
         }
     }, 1500));
 
@@ -89,7 +88,7 @@ $(document).ready(function() {
             url: 'ajax/register.php',
             data: data,
             dataType: 'JSON',
-            success: function(data) {
+            success: function(data) {       
                 if (data.redirect !== undefined) {
                     window.location = data.redirect;
                 } else if (data.error !== undefined) {
