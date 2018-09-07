@@ -41,7 +41,7 @@
             $return['redirect'] = 'dashboard.php?message=welcome';
             $return['is_logged_in'] = true;
         }
-
+      
         echo json_encode($return, JSON_PRETTY_PRINT);
     } else {
         exit('Invalid URL');

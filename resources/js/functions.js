@@ -1,5 +1,5 @@
 function trimVal(el) {
-    return $(el).trim.val();
+    return $.trim($(el).val());
 }
 
 function errorFalse(input, msg) {
